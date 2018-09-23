@@ -18,28 +18,47 @@
     }
 
     // Regular
-
+      console.log("Hello");
     // Interpolated
+    console.log('Hello My name is chika chika %s', 'Slim Shady')
 
     // Styled
+    console.log('%c This is some YUGE text', 'font-size:100px')
 
     // warning!
-
+    console.warn("Look OUT!");
     // Error :|
+    console.error("OOOOOPS")
 
     // Info
-
+    console.info('You know nothing John Snow')
     // Testing
-
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('big money'), 'Youre broke');
     // clearing
-
+    console.clear();
     // Viewing DOM Elements
-
+    console.dir()
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}, he is ${dog.age} years old`);
+      console.groupEnd(`${dog.name}`);
+    })
 
     // counting
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
 
     // timing
+    console.time('fetch data');
+    fetch('https://api.github.com/users/amplifyd1')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetch data');
+        console.log(data);
+      })
 
   </script>
 </body>
