@@ -1,10 +1,10 @@
-const player = document.QuerySelector('.player');
-const video = player.QuerySelector('.viewer');
-const progress = player.QuerySelector('.progress');
-const progressBar = player.QuerySelector('.progress__filled');
-const toggle = player.QuerySelector('.toggle')
-const skipButtons = player.QuerySelectorAll('[data-skip]')
-const ranges = player.QuerySelectorAll('.player__slider')
+const player = document.querySelector('.player');
+const video = player.querySelector('.viewer');
+const progress = player.querySelector('.progress');
+const progressBar = player.querySelector('.progress__filled');
+const toggle = player.querySelector('.toggle')
+const skipButtons = player.querySelectorAll('[data-skip]')
+const ranges = player.querySelectorAll('.player__slider')
 
 
 function togglePlay(){
@@ -20,7 +20,13 @@ function updateButton(){
   toggle.textContent = icon;
 }
 
-video.addEventListener('click', tooglePlay);
+function skip(){
+  console.log('SKIP!')
+  video.currentTime += parseFloat(this.dataset.skip);
+}
+
+video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton)
 video.addEventListener('pause', updateButton)
-toogle.addEventListener('click', tooglePlay);
+toggle.addEventListener('click', togglePlay);
+skipButtons.forEach(button => button.addEventListener('click',skip));
